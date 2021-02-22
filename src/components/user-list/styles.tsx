@@ -3,7 +3,11 @@ import styled from 'styled-components';
 
 export const UserList = styled.ul`
 	margin: 0;
-	padding: 0 4rem;
+	padding: 0 2rem;
+
+	@media(${props => props.theme.media.mobile_large}) {
+		padding: 0 4rem;
+	}
 `;
 
 export const UserItem = styled.li`
@@ -58,9 +62,8 @@ export const Head = styled.li`
 export const HeadPart = styled.div`
 	flex: 1;
 
-	font-size: 2rem;
+	font-size: 1.6rem;
 	font-weight: 700;
-	font-size: 1.2rem;
 `;
 
 export const Link = styled.a`
