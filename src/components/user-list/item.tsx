@@ -29,6 +29,7 @@ function Item ({ name, username, to }: IProps) {
 			</Part>
 		</Root>
 	);
+
 }
 
 export default Item;

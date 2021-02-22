@@ -54,25 +54,9 @@ export const THEME: ITheme = {
 		gray_lighter: '#f3f3f3',
 		gray_light: '#E2E2E2',
 		gray_medium_light: '#dddddd',
-		// gray_medium: '#eaeaea',
 		gray_dark: '#555555',
-		// blue_main: '#1B83A4',
 		blue_background: '#f3f9fa',
-		// blue_alternate: '#5c717b',
 		blue_dark: '#194553'
-		// text_graph: '#3e3e3e',
-		// text_light: '#868686',
-		// text_dark: '#414141',
-		// error: '#DB4736',
-		// success: '#5FA052',
-		// warning: '#DD7F33',
-		// info: '#1B83A4',
-		// disabled: '#d4d4d4',
-		// chart_good: '#36c161',
-		// chart_ok: '#ffa42c',
-		// chart_bad: '#e52828',
-		// facebook: '#4267B2',
-		// foursquare: '#F94877'
 	}
 
 };

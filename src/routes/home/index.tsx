@@ -20,6 +20,7 @@ function Home () {
 			Home
 		</Section>
 	);
+
 }
 
 export default Home;

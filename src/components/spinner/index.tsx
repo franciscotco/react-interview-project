@@ -14,7 +14,7 @@ function Spinner () {
 
 	for (let i = 0; i < 12; i++) {
 		segments.push(
-			<Segment key={i} color="gray" />
+			<Segment key={i} />
 		);
 	}
 

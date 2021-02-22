@@ -33,4 +33,8 @@ function App ({ children, onSwitchLang, routes }: IProps) {
 
 }
 
+App.defaultProps = {
+	routes: []
+};
+
 export default App;

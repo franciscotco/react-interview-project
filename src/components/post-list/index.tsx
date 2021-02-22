@@ -25,6 +25,7 @@ function List ({ posts }: IProps) {
 			})}
 		</Root>
 	);
+
 }
 
 List.defaultProps = {

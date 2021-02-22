@@ -22,6 +22,7 @@ function Item ({ title, body }: IProps) {
 			</Body>
 		</Root>
 	);
+
 }
 
 export default Item;

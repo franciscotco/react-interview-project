@@ -1,16 +1,14 @@
 // Vendors
 import React from 'react';
+import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'styled-components';
-// import enLocaleData from 'react-intl/locale-data/en';
-// import frLocaleData from 'react-intl/locale-data/fr';
 import { useSelector, useDispatch } from 'react-redux';
-import { IntlProvider/*, addLocaleData*/ } from 'react-intl';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 
 // Theme
-import { BaseGlobalStyles } from 'styles/base';
 import { THEME } from 'styles/theme';
+import { BaseGlobalStyles } from 'styles/base';
 
 // Routes
 import { getRoutes } from './routes';
@@ -33,9 +31,6 @@ const MESSAGES: any = {
 	en: en,
 	fr: fr
 };
-
-// addLocaleData(enLocaleData);
-// addLocaleData(frLocaleData);
 
 /*
  *
@@ -67,8 +62,8 @@ function Root () {
 						routes={getRoutes()}
 					>
 						<Switch>
-							<Route path={HomeConfig.path}     exact         component={Home} />
-							<Route path={UserConfig.path}     exact={false} component={User} />
+							<Route path={HomeConfig.path}     exact         component={Home}  />
+							<Route path={UserConfig.path}     exact={false} component={User}  />
 							<Route path={StatsConfig.path}    exact         component={Stats} />
 							<Route render={() => <Redirect to="/home" />} />
 						</Switch>

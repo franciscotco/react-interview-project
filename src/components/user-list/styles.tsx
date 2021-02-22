@@ -12,6 +12,7 @@ export const UserList = styled.ul`
 
 export const UserItem = styled.li`
 	position: relative;
+
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -19,6 +20,7 @@ export const UserItem = styled.li`
 
 	margin: .5rem 0;
 	padding: 1rem;
+
 	background: ${({ theme }) => theme.color.white};
 	border-left: 1px solid ${({ theme }) => theme.color.white};
 

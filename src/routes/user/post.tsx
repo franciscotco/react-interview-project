@@ -75,6 +75,7 @@ function UserPost ({ basePath, users }: IProps) {
 			/>
 		</Section>
 	);
+
 }
 
 export default UserPost;

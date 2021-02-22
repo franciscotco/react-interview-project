@@ -35,6 +35,7 @@ function User ({ match }: IProps) {
 			<Route render={() => <Redirect to={match.url} />} />
 		</Switch>
 	);
+
 }
 
 export default User;

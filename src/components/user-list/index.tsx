@@ -39,6 +39,7 @@ function List ({ users }: IProps) {
 			})}
 		</Root>
 	);
+
 }
 
 List.defaultProps = {
