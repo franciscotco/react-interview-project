@@ -70,9 +70,11 @@ function UserPost ({ basePath, users }: IProps) {
 					posts={posts}
 				/>
 			)}
-			<FormUser
-				user={user}
-			/>
+			{user && (
+				<FormUser
+					user={user}
+				/>
+			)}
 		</Section>
 	);
 }
