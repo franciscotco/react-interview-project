@@ -1,0 +1,9 @@
+{
+	"ROUTES.USER.LIST.TITLE": "Users list",
+	"ROUTE.USER.NAME": "Users",
+	"ROUTE.POST.NAME": "Posts",
+	"ROUTE.HOME.NAME": "Home",
+	"ROUTE.STATS.NAME": "Statistics",
+	"ROUTES.STATS.USER.APT": "Number of user in an appartment",
+	"ROUTES.STATS.USER.SUITE": "Number of user in a suite"
+}

@@ -1,0 +1,9 @@
+{
+	"ROUTES.USER.LIST.TITLE": "Liste des utilisateurs",
+	"ROUTE.USER.NAME": "Utilisateurs",
+	"ROUTE.POST.NAME": "Postes",
+	"ROUTE.HOME.NAME": "Accueille",
+	"ROUTE.STATS.NAME": "Statistiques",
+	"ROUTES.STATS.USER.APT": "Nombre d'utilisateur dans un appartement",
+	"ROUTES.STATS.USER.SUITE": "Nombre d'utilisateur dans une suite"
+}
