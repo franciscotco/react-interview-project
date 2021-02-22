@@ -1,11 +1,21 @@
+// Vendors
 import React from 'react';
-import './App.css';
-import UsersTable from "./components/UsersTable";
+import { Provider } from 'react-redux';
 
-function App() {
-  return (
-    <UsersTable/>
-  );
+// Store
+import store from 'store';
+
+// Routes
+import { routes } from './routes';
+
+function App () {
+
+	return (
+		<Provider store={store}>
+			{routes}
+		</Provider>
+	);
+
 }
 
 export default App;
