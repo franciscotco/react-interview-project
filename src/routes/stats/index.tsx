@@ -24,8 +24,6 @@ function Stats () {
 	const user = useSelector(({ user }: { user: IUserState }) => user);
 	const dispatch = useDispatch();
 
-	const toto;
-
 	React.useEffect(() => {
 
 		dispatch(actions.getUsers());

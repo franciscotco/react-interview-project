@@ -30,7 +30,7 @@ function User ({ match }: IProps) {
 
 	return (
 		<Switch>
-			<Route path={match.url}               exact render={() => <List basePath={match.url} users={user.items} />} />
+			<Route path={match.url}               exact render={() => <List basePath={match.url} users={user.items} isFetchingUsers={user.isFetching} />} />
 			<Route path={`${match.url}/:user_id`} exact render={() => <Post basePath={match.url} users={user.items} />} />
 			<Route render={() => <Redirect to={match.url} />} />
 		</Switch>
