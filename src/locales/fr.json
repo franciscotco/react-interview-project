@@ -11,5 +11,8 @@
 	"COMPONENTS.USER_LIST.HEAD.POST": "Publications",
 	"ROUTES.USER.POST.TITLE": "Page des posts d'un utilisateur",
 	"ROUTES.HOME.TITLE": "Page d'accueil",
-	"ROUTES.STATS.TITLE": "Page des statistiques sur les utilisateurs"
+	"ROUTES.STATS.TITLE": "Page des statistiques sur les utilisateurs",
+	"FORMS.USER.SUBMIT": "Envoyer",
+	"FORMS.USER.TITLE": "Formulaire d'utilisateur",
+	"FORMS.USER.NAME": "Prénom"
 }

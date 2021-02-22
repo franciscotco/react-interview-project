@@ -11,5 +11,8 @@
 	"COMPONENTS.USER_LIST.HEAD.POST": "Posts",
 	"ROUTES.USER.POST.TITLE": "User Posts",
 	"ROUTES.HOME.TITLE": "Home page",
-	"ROUTES.STATS.TITLE": "Stats user page"
+	"ROUTES.STATS.TITLE": "Stats user page",
+	"FORMS.USER.SUBMIT": "Submit",
+	"FORMS.USER.TITLE": "User form",
+	"FORMS.USER.NAME": "Name"
 }
