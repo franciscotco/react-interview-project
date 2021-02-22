@@ -8,7 +8,7 @@ import { updateUser } from 'api/user';
 import IUser from 'types/user';
 
 interface IProps {
-	user?: IUser
+	user: IUser
 }
 
 const UserForm = ({ user }: IProps) => {
@@ -21,10 +21,6 @@ const UserForm = ({ user }: IProps) => {
 
 		return () => { mounted = false; };
 	}, []);
-
-	if (!user) {
-		return null;
-	}
 
 	return (
 		<div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', margin: '2rem 0' }}>
@@ -75,7 +71,7 @@ const UserForm = ({ user }: IProps) => {
 								<ErrorMessage name="name" component="div" />
 							</div>
 
-							<button type="submit" disabled={isSubmitting}>
+							<button type="submit" disabled={!!errors?.name?.length || isSubmitting}>
 								{intl.formatMessage({ id: 'FORMS.USER.SUBMIT' })}
 							</button>
 						</form>
