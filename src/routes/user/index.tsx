@@ -7,9 +7,6 @@ import { Switch, Route, Redirect, RouteComponentProps } from 'react-router-dom';
 import List from './list';
 import Post from './post';
 
-// Components
-import Section from 'components/section';
-
 // Store
 import { actions, IUserState } from 'store/user';
 
@@ -32,13 +29,11 @@ function User ({ match }: IProps) {
 	}, []);
 
 	return (
-		<Section>
-			<Switch>
-				<Route path={match.url}               exact render={() => <List basePath={match.url} users={user.items} />} />
-				<Route path={`${match.url}/:user_id`} exact render={() => <Post basePath={match.url} users={user.items} />} />
-				<Route render={() => <Redirect to={match.url} />} />
-			</Switch>
-		</Section>
+		<Switch>
+			<Route path={match.url}               exact render={() => <List basePath={match.url} users={user.items} />} />
+			<Route path={`${match.url}/:user_id`} exact render={() => <Post basePath={match.url} users={user.items} />} />
+			<Route render={() => <Redirect to={match.url} />} />
+		</Switch>
 	);
 }
 

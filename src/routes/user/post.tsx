@@ -1,5 +1,6 @@
 // Vendors
 import React from 'react';
+import { useIntl } from 'react-intl';
 import { useParams } from 'react-router-dom';
 
 // API
@@ -9,6 +10,7 @@ import { fetchUserPost } from 'api/post';
 import IUser from 'types/user';
 
 // Components
+import Section from 'components/section';
 import PostList from 'components/post-list';
 
 // Forms
@@ -21,6 +23,7 @@ interface IProps {
 
 function UserPost ({ basePath, users }: IProps) {
 
+	const intl = useIntl();
 	const { user_id } = useParams<{ user_id: string }>();
 	const [posts, setPosts] = React.useState([]);
 	const user = users.find(({ id }) => id === parseInt(user_id));
@@ -32,14 +35,16 @@ function UserPost ({ basePath, users }: IProps) {
 	}, []);
 
 	return (
-		<React.Fragment>
+		<Section
+			title={intl.formatMessage({ id: 'ROUTES.USER.POST.TITLE' })}
+		>
 			<FormUser
 				user={user}
 			/>
 			<PostList
 				posts={posts}
 			/>
-		</React.Fragment>
+		</Section>
 	);
 }
 

@@ -32,7 +32,9 @@ function Stats () {
 	const countUserAccomodation = (users: IUser[], accomodationType: string) => users.filter(({ address }) => address.suite.includes(accomodationType))?.length || 0;
 
 	return (
-		<Section>
+		<Section
+			title={intl.formatMessage({ id: 'ROUTES.STATS.TITLE' })}
+		>
 			<UserStats
 				title={intl.formatMessage({ id: 'ROUTES.STATS.USER.APT' })}
 				stats={countUserAccomodation(user.items, 'Apt.')}
