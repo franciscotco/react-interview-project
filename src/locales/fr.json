@@ -13,6 +13,7 @@
 	"ROUTES.HOME.TITLE": "Page d'accueil",
 	"ROUTES.STATS.TITLE": "Page des statistiques sur les utilisateurs",
 	"FORMS.USER.SUBMIT": "Envoyer",
-	"FORMS.USER.TITLE": "Formulaire d'utilisateur",
-	"FORMS.USER.NAME": "Prénom"
+	"FORMS.USER.TITLE": "Formulaire",
+	"FORMS.USER.NAME": "Prénom",
+	"COMPONENTS.SECTION.BACK_URL.TITLE": "Retour"
 }
