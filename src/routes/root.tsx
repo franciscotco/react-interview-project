@@ -70,7 +70,7 @@ function Root () {
 							<Route path={HomeConfig.path}     exact         component={Home} />
 							<Route path={UserConfig.path}     exact={false} component={User} />
 							<Route path={StatsConfig.path}    exact         component={Stats} />
-							<Route render={() => <Redirect to="/" />} />
+							<Route render={() => <Redirect to="/home" />} />
 						</Switch>
 					</App>
 				</React.Fragment>

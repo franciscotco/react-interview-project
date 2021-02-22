@@ -1,6 +1,6 @@
 export default {
 	id: 'home',
 	name: 'home',
-	path: '/',
+	path: '/home',
 	order: 0
 };
