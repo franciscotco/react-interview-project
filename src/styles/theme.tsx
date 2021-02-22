@@ -22,7 +22,12 @@ export interface ITheme {
 
 	color: {
 		white: string,
-		gray_lightest: string
+		gray_lightest: string,
+		gray_lighter: string,
+		gray_light: string,
+		gray_medium_light: string,
+		blue_background: string,
+		blue_dark: string
 	}
 }
 
@@ -44,16 +49,16 @@ export const THEME: ITheme = {
 
 	color: {
 		white: '#ffffff',
-		gray_lightest: '#fcfcfc'
-		// gray_lighter: '#f3f3f3',
-		// gray_light: '#E2E2E2',
-		// gray_medium_light: '#dddddd',
+		gray_lightest: '#fcfcfc',
+		gray_lighter: '#f3f3f3',
+		gray_light: '#E2E2E2',
+		gray_medium_light: '#dddddd',
 		// gray_medium: '#eaeaea',
 		// gray_dark: '#555555',
 		// blue_main: '#1B83A4',
-		// blue_background: '#f3f9fa',
+		blue_background: '#f3f9fa',
 		// blue_alternate: '#5c717b',
-		// blue_dark: '#194553',
+		blue_dark: '#194553'
 		// text_graph: '#3e3e3e',
 		// text_light: '#868686',
 		// text_dark: '#414141',

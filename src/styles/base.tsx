@@ -17,7 +17,7 @@ export const BaseGlobalStyles = createGlobalStyle`
 
 		height:100%;
 
-		background:${({ theme }) => theme.color.gray_lightest};
+		background:${({ theme }) => theme.color.gray_lighter};
 	}
 
 	body {
