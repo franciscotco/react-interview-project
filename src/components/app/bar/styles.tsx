@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 export const Root = styled.div`
 	width: 100%;
-	height: 8rem;
+	min-height: 8rem;
 `;
 
 export const Bar = styled.div`
