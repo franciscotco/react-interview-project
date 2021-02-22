@@ -38,11 +38,11 @@ function UserPost ({ basePath, users }: IProps) {
 		<Section
 			title={intl.formatMessage({ id: 'ROUTES.USER.POST.TITLE' })}
 		>
-			<FormUser
-				user={user}
-			/>
 			<PostList
 				posts={posts}
+			/>
+			<FormUser
+				user={user}
 			/>
 		</Section>
 	);
