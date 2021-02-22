@@ -1,5 +1,6 @@
 // Vendors
 import React from 'react';
+import { useIntl } from 'react-intl';
 import { Formik, Field, ErrorMessage } from 'formik';
 
 // API
@@ -12,6 +13,7 @@ interface IProps {
 
 const UserForm = ({ user }: IProps) => {
 
+	const intl = useIntl();
 	const [mounted, setMounted] = React.useState(false);
 
 	React.useEffect(() => {
@@ -25,54 +27,61 @@ const UserForm = ({ user }: IProps) => {
 	}
 
 	return (
-		<div>
+		<div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
 
-			<h1>Any place in your app!</h1>
+			<h1>{intl.formatMessage({ id: 'FORMS.USER.TITLE' })}</h1>
 
-			<Formik
-				initialValues={{ name: user.name }}
-				validate={values => {
+			<div>
+				<Formik
+					initialValues={{ name: user.name }}
+					validate={values => {
 
-					const errors: { name?: string } = {};
+						const errors: { name?: string } = {};
 
-					if (!values.name) {
-						errors.name = 'Required';
-					}
+						if (!values.name) {
+							errors.name = 'Required';
+						}
 
-					console.log('errors');
+						return errors;
+					}}
+					onSubmit={(values, { setSubmitting }) => {
 
-					return errors;
-				}}
-				onSubmit={(values, { setSubmitting }) => {
+						setSubmitting(true);
 
-					console.log('submit');
-					setSubmitting(true);
+						updateUser({ ...user, name: values.name })
+							.then(res => {
+								console.log(res);
+								if (mounted) {
+									setSubmitting(false);
+								}
+							})
+							.catch(res => {
+								console.error(res);
+								if (mounted) {
+									setSubmitting(false);
+								}
+							});
+					}}
+				>
+					{({ isSubmitting, handleSubmit, errors }) => (
+						<form onSubmit={handleSubmit}>
+							<div style={{ display: 'flex', flexDirection: 'column' }}>
+								<label htmlFor="name" style={{ color: errors.name ? 'red' : 'unset' }}>
+									{intl.formatMessage({ id: 'FORMS.USER.NAME' })}
+								</label>
+								<div>
+									<Field type="text" name="name" />
+								</div>
+								<ErrorMessage name="name" component="div" />
+							</div>
 
-					updateUser({ ...user, name: values.name })
-						.then(res => {
-							console.log(res);
-							if (mounted) {
-								setSubmitting(false);
-							}
-						})
-						.catch(res => {
-							console.error(res);
-							if (mounted) {
-								setSubmitting(false);
-							}
-						});
-				}}
-			>
-				{({ isSubmitting, handleSubmit }) => (
-					<form onSubmit={handleSubmit}>
-						<Field type="text" name="name" />
-						<ErrorMessage name="name" component="div" />
-						<button type="submit" disabled={isSubmitting}>
-							Submit
-						</button>
-					</form>
-				)}
-			</Formik>
+							<button type="submit" disabled={isSubmitting}>
+								{intl.formatMessage({ id: 'FORMS.USER.SUBMIT' })}
+							</button>
+						</form>
+					)}
+				</Formik>
+			</div>
 		</div>
 	);
 
