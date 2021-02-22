@@ -10,6 +10,7 @@ import IUser from 'types/user';
 import { actions, IUserState } from 'store/user';
 
 // Components
+import Spinner from 'components/spinner';
 import Section from 'components/section';
 import UserStats from 'components/user-stats';
 
@@ -23,6 +24,8 @@ function Stats () {
 	const user = useSelector(({ user }: { user: IUserState }) => user);
 	const dispatch = useDispatch();
 
+	const toto;
+
 	React.useEffect(() => {
 
 		dispatch(actions.getUsers());
@@ -35,14 +38,20 @@ function Stats () {
 		<Section
 			title={intl.formatMessage({ id: 'ROUTES.STATS.TITLE' })}
 		>
-			<UserStats
-				title={intl.formatMessage({ id: 'ROUTES.STATS.USER.APT' })}
-				stats={countUserAccomodation(user.items, 'Apt.')}
-			/>
-			<UserStats
-				title={intl.formatMessage({ id: 'ROUTES.STATS.USER.SUITE' })}
-				stats={countUserAccomodation(user.items, 'Suite')}
-			/>
+			{user.isFetching ? (
+				<Spinner />
+			) : (
+				<React.Fragment>
+					<UserStats
+						title={intl.formatMessage({ id: 'ROUTES.STATS.USER.APT' })}
+						stats={countUserAccomodation(user.items, 'Apt.')}
+					/>
+					<UserStats
+						title={intl.formatMessage({ id: 'ROUTES.STATS.USER.SUITE' })}
+						stats={countUserAccomodation(user.items, 'Suite')}
+					/>
+				</React.Fragment>
+			)}
 		</Section>
 	);
 
