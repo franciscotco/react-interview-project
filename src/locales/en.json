@@ -5,5 +5,11 @@
 	"ROUTE.HOME.NAME": "Home",
 	"ROUTE.STATS.NAME": "Statistics",
 	"ROUTES.STATS.USER.APT": "Number of user in an appartment",
-	"ROUTES.STATS.USER.SUITE": "Number of user in a suite"
+	"ROUTES.STATS.USER.SUITE": "Number of user in a suite",
+	"COMPONENTS.USER_LIST.HEAD.NAME": "Name",
+	"COMPONENTS.USER_LIST.HEAD.LAST_NAME": "Last name",
+	"COMPONENTS.USER_LIST.HEAD.POST": "Posts",
+	"ROUTES.USER.POST.TITLE": "User Posts",
+	"ROUTES.HOME.TITLE": "Home page",
+	"ROUTES.STATS.TITLE": "Stats user page"
 }

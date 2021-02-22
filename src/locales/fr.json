@@ -2,8 +2,14 @@
 	"ROUTES.USER.LIST.TITLE": "Liste des utilisateurs",
 	"ROUTE.USER.NAME": "Utilisateurs",
 	"ROUTE.POST.NAME": "Postes",
-	"ROUTE.HOME.NAME": "Accueille",
+	"ROUTE.HOME.NAME": "Accueil",
 	"ROUTE.STATS.NAME": "Statistiques",
 	"ROUTES.STATS.USER.APT": "Nombre d'utilisateur dans un appartement",
-	"ROUTES.STATS.USER.SUITE": "Nombre d'utilisateur dans une suite"
+	"ROUTES.STATS.USER.SUITE": "Nombre d'utilisateur dans une suite",
+	"COMPONENTS.USER_LIST.HEAD.NAME": "Prénom",
+	"COMPONENTS.USER_LIST.HEAD.LAST_NAME": "Nom",
+	"COMPONENTS.USER_LIST.HEAD.POST": "Publications",
+	"ROUTES.USER.POST.TITLE": "Page des posts d'un utilisateur",
+	"ROUTES.HOME.TITLE": "Page d'accueil",
+	"ROUTES.STATS.TITLE": "Page des statistiques sur les utilisateurs"
 }
