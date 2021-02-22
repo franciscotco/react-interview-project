@@ -1,6 +1,9 @@
 // Vendors
 import React from 'react';
 
+// Components
+import Section from 'components/section';
+
 // Config
 import Config from './config';
 export { Config };
@@ -8,9 +11,9 @@ export { Config };
 function Home () {
 
 	return (
-		<React.Fragment>
+		<Section>
 			Home
-		</React.Fragment>
+		</Section>
 	);
 }
 

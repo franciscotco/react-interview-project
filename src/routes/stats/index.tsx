@@ -10,6 +10,7 @@ import IUser from 'types/user';
 import { actions, IUserState } from 'store/user';
 
 // Components
+import Section from 'components/section';
 import UserStats from 'components/user-stats';
 
 // Config
@@ -31,7 +32,7 @@ function Stats () {
 	const countUserAccomodation = (users: IUser[], accomodationType: string) => users.filter(({ address }) => address.suite.includes(accomodationType))?.length || 0;
 
 	return (
-		<React.Fragment>
+		<Section>
 			<UserStats
 				title={intl.formatMessage({ id: 'ROUTES.STATS.USER.APT' })}
 				stats={countUserAccomodation(user.items, 'Apt.')}
@@ -40,7 +41,7 @@ function Stats () {
 				title={intl.formatMessage({ id: 'ROUTES.STATS.USER.SUITE' })}
 				stats={countUserAccomodation(user.items, 'Suite')}
 			/>
-		</React.Fragment>
+		</Section>
 	);
 
 }
