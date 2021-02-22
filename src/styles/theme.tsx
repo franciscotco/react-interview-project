@@ -26,6 +26,7 @@ export interface ITheme {
 		gray_lighter: string,
 		gray_light: string,
 		gray_medium_light: string,
+		gray_dark: string,
 		blue_background: string,
 		blue_dark: string
 	}
@@ -54,7 +55,7 @@ export const THEME: ITheme = {
 		gray_light: '#E2E2E2',
 		gray_medium_light: '#dddddd',
 		// gray_medium: '#eaeaea',
-		// gray_dark: '#555555',
+		gray_dark: '#555555',
 		// blue_main: '#1B83A4',
 		blue_background: '#f3f9fa',
 		// blue_alternate: '#5c717b',
