@@ -23,7 +23,7 @@ interface IProps {
 }
 
 function UserPost ({ basePath, users }: IProps) {
-	let mounted = false;
+	const mounted = React.useRef(false);
 
 	const intl = useIntl();
 	const { user_id } = useParams<{ user_id: string }>();
@@ -33,9 +33,9 @@ function UserPost ({ basePath, users }: IProps) {
 	const user = users.find(({ id }) => id === parseInt(user_id));
 
 	React.useEffect(() => {
-		mounted = true;
+		mounted.current = true;
 
-		return () => { mounted = false; };
+		return () => { mounted.current = false; };
 	}, []);
 
 	React.useEffect(() => {
@@ -45,14 +45,14 @@ function UserPost ({ basePath, users }: IProps) {
 		fetchUserPost(user_id)
 			.then(res => {
 				console.log(res);
-				if (mounted) {
+				if (mounted.current) {
 					setFetching(false);
 					setPosts(res.data);
 				}
 			})
 			.catch(res => {
 				console.error(res);
-				if (mounted) {
+				if (mounted.current) {
 					setFetching(false);
 					setPosts([]);
 				}
@@ -62,6 +62,7 @@ function UserPost ({ basePath, users }: IProps) {
 	return (
 		<Section
 			title={intl.formatMessage({ id: 'ROUTES.USER.POST.TITLE' })}
+			backUrl={basePath}
 		>
 			{isFetching ? (
 				<Spinner />

@@ -12,14 +12,13 @@ interface IProps {
 }
 
 const UserForm = ({ user }: IProps) => {
-	let mounted = false;
+	const mounted = React.useRef(false);
 
 	const intl = useIntl();
 
 	React.useEffect(() => {
-		mounted = true;
-
-		return () => { mounted = false; };
+		mounted.current = true;
+		return () => { mounted.current = false; };
 	}, []);
 
 	return (
@@ -47,13 +46,13 @@ const UserForm = ({ user }: IProps) => {
 						updateUser({ ...user, name: values.name })
 							.then(res => {
 								console.log(res);
-								if (mounted) {
+								if (mounted.current) {
 									setSubmitting(false);
 								}
 							})
 							.catch(res => {
 								console.error(res);
-								if (mounted) {
+								if (mounted.current) {
 									setSubmitting(false);
 								}
 							});
@@ -71,7 +70,7 @@ const UserForm = ({ user }: IProps) => {
 								<ErrorMessage name="name" component="div" />
 							</div>
 
-							<button type="submit" disabled={!!errors?.name?.length || isSubmitting}>
+							<button type="submit" disabled={(errors.name && errors?.name?.length > 0) || isSubmitting}>
 								{intl.formatMessage({ id: 'FORMS.USER.SUBMIT' })}
 							</button>
 						</form>
