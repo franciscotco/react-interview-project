@@ -10,6 +10,7 @@ import { fetchUserPost } from 'api/post';
 import IUser from 'types/user';
 
 // Components
+import Spinner from 'components/spinner';
 import Section from 'components/section';
 import PostList from 'components/post-list';
 
@@ -22,25 +23,53 @@ interface IProps {
 }
 
 function UserPost ({ basePath, users }: IProps) {
+	let mounted = false;
 
 	const intl = useIntl();
 	const { user_id } = useParams<{ user_id: string }>();
 	const [posts, setPosts] = React.useState([]);
+	const [isFetching, setFetching] = React.useState(true);
+
 	const user = users.find(({ id }) => id === parseInt(user_id));
 
 	React.useEffect(() => {
+		mounted = true;
+
+		return () => { mounted = false; };
+	}, []);
+
+	React.useEffect(() => {
+
+		setFetching(true);
+
 		fetchUserPost(user_id)
-			.then(res => { console.log(res); setPosts(res.data); })
-			.catch(res => { console.error(res); setPosts([]); });
+			.then(res => {
+				console.log(res);
+				if (mounted) {
+					setFetching(false);
+					setPosts(res.data);
+				}
+			})
+			.catch(res => {
+				console.error(res);
+				if (mounted) {
+					setFetching(false);
+					setPosts([]);
+				}
+			});
 	}, []);
 
 	return (
 		<Section
 			title={intl.formatMessage({ id: 'ROUTES.USER.POST.TITLE' })}
 		>
-			<PostList
-				posts={posts}
-			/>
+			{isFetching ? (
+				<Spinner />
+			) : (
+				<PostList
+					posts={posts}
+				/>
+			)}
 			<FormUser
 				user={user}
 			/>

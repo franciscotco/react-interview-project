@@ -12,14 +12,14 @@ interface IProps {
 }
 
 const UserForm = ({ user }: IProps) => {
+	let mounted = false;
 
 	const intl = useIntl();
-	const [mounted, setMounted] = React.useState(false);
 
 	React.useEffect(() => {
-		setMounted(true);
+		mounted = true;
 
-		return () => setMounted(false);
+		return () => { mounted = false; };
 	}, []);
 
 	if (!user) {
@@ -27,7 +27,7 @@ const UserForm = ({ user }: IProps) => {
 	}
 
 	return (
-		<div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+		<div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', margin: '2rem 0' }}>
 
 			<h1>{intl.formatMessage({ id: 'FORMS.USER.TITLE' })}</h1>
 
