@@ -15,7 +15,8 @@ import { ILangState } from 'store/lang';
 
 // Styles
 import {
-	Bar as Root, Part,
+	Root,
+	Bar, Part,
 	RouteList, RouteLink, RouteItem, Heading3,
 	LangList, LangItem, LangLink
 } from './styles';
@@ -31,45 +32,45 @@ function AppBar ({ onSwitchLang, routes }: IProps) {
 	const location = useLocation();
 	const lang = useSelector(({ lang }: { lang: ILangState }) => lang);
 
-	console.log(lang);
-
 	const onClick = (lang: string) => () => onSwitchLang(lang);
 
 	return (
 		<Root>
-			<Part>
-				<RouteList>
-					{routes.map(route => (
-						<RouteItem key={route.id}>
-							<RouteLink
-								as={NavLink}
-								to={route.path}
-								$is_active={!!location.pathname.includes(route.path)}
+			<Bar>
+				<Part>
+					<RouteList>
+						{routes.map(route => (
+							<RouteItem key={route.id}>
+								<RouteLink
+									as={NavLink}
+									to={route.path}
+									$is_active={!!location.pathname.includes(route.path)}
+								>
+									<Heading3>
+										{intl.formatMessage({ id: `ROUTE.${route.name.toUpperCase()}.NAME` })}
+									</Heading3>
+								</RouteLink>
+							</RouteItem>
+						))}
+					</RouteList>
+				</Part>
+				<Part>
+					<LangList>
+						{supportedLanguages.map(lang_code => (
+							<LangItem
+								key={lang_code}
 							>
-								<Heading3>
-									{intl.formatMessage({ id: `ROUTE.${route.name.toUpperCase()}.NAME` })}
-								</Heading3>
-							</RouteLink>
-						</RouteItem>
-					))}
-				</RouteList>
-			</Part>
-			<Part>
-				<LangList>
-					{supportedLanguages.map(lang_code => (
-						<LangItem
-							key={lang_code}
-						>
-							<LangLink
-								onClick={onClick(lang_code)}
-								is_active={lang_code === lang.code}
-							>
-								{lang_code.toUpperCase()}
-							</LangLink>
-						</LangItem>
-					))}
-				</LangList>
-			</Part>
+								<LangLink
+									onClick={onClick(lang_code)}
+									is_active={lang_code === lang.code}
+								>
+									{lang_code.toUpperCase()}
+								</LangLink>
+							</LangItem>
+						))}
+					</LangList>
+				</Part>
+			</Bar>
 		</Root>
 	);
 

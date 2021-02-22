@@ -1,9 +1,15 @@
 // Vendors
 import styled, { css } from 'styled-components';
 
-export const Bar = styled.div`
+export const Root = styled.div`
 	width: 100%;
-	height: 9rem;
+	height: 8rem;
+`;
+
+export const Bar = styled.div`
+	position: fixed;
+	width: 100%;
+	height: 8rem;
 	box-sizing:border-box;
 
 	display: flex;
