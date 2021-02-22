@@ -24,6 +24,10 @@ export const BaseGlobalStyles = createGlobalStyle`
 		margin: 0;
 	}
 
+	#root {
+		height:100%;
+	}
+
 	@media (${props => props.theme.media.mobile_large}) {
 		html, body {
 			font-size:8px;
