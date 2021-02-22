@@ -10,6 +10,10 @@ export const Section = styled.div`
 	flex-direction: column;
 `;
 
+export const Link = styled.a`
+
+`;
+
 export const Heading1 = styled.h1`
 	text-align: center;
 `;
