@@ -14,6 +14,10 @@ export const BaseGlobalStyles = createGlobalStyle`
 		-moz-osx-font-smoothing:grayscale;
 		-webkit-font-smoothing:antialiased;
 		text-size-adjust:none;
+
+		height:100%;
+
+		background:${({ theme }) => theme.color.gray_lightest};
 	}
 
 	body {
