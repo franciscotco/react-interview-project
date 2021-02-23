@@ -3,16 +3,16 @@ import React from 'react';
 
 function useMounted () {
 
-	const mounted = React.useRef(false);
+	const [mounted, setMounted] = React.useState(false);
 
 	React.useEffect(() => {
 
-		mounted.current = true;
+		setMounted(true);
 
-		return () => { mounted.current = false; };
+		return () => setMounted(false);
 	}, []);
 
-	return mounted.current;
+	return mounted;
 }
 
 export { useMounted };
