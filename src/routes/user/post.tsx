@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import { useParams } from 'react-router-dom';
 
 // API
-import { fetchUserPost } from 'api/post';
+import { useFetchUserPost } from 'api/post';
 
 // Types
 import IUser from 'types/user';
@@ -23,41 +23,12 @@ interface IProps {
 }
 
 function UserPost ({ basePath, users }: IProps) {
-	const mounted = React.useRef(false);
 
 	const intl = useIntl();
 	const { user_id } = useParams<{ user_id: string }>();
-	const [posts, setPosts] = React.useState([]);
-	const [isFetching, setFetching] = React.useState(true);
+	const { isFetching, posts } = useFetchUserPost(user_id);
 
 	const user = users.find(({ id }) => id === parseInt(user_id));
-
-	React.useEffect(() => {
-		mounted.current = true;
-
-		return () => { mounted.current = false; };
-	}, []);
-
-	React.useEffect(() => {
-
-		setFetching(true);
-
-		fetchUserPost(user_id)
-			.then(res => {
-				console.log(res);
-				if (mounted.current) {
-					setFetching(false);
-					setPosts(res.data);
-				}
-			})
-			.catch(res => {
-				console.error(res);
-				if (mounted.current) {
-					setFetching(false);
-					setPosts([]);
-				}
-			});
-	}, []);
 
 	return (
 		<Section

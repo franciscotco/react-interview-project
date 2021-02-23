@@ -1,13 +1,9 @@
 // Vendors
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { useSelector, useDispatch } from 'react-redux';
 
-// Types
-import IUser from 'types/user';
-
-// Store
-import { actions, IUserState } from 'store/user';
+// API
+import { useFetchUsers } from 'api/user';
 
 // Components
 import Spinner from 'components/spinner';
@@ -21,32 +17,25 @@ export { Config };
 function Stats () {
 
 	const intl = useIntl();
-	const user = useSelector(({ user }: { user: IUserState }) => user);
-	const dispatch = useDispatch();
+	const { users, isFetching } = useFetchUsers();
 
-	React.useEffect(() => {
-
-		dispatch(actions.getUsers());
-
-	}, []);
-
-	const countUserAccomodation = (users: IUser[], accomodationType: string) => users.filter(({ address }) => address.suite.includes(accomodationType))?.length || 0;
+	const countUserAccomodation = (accomodationType: string) => users.filter(({ address }) => address.suite.includes(accomodationType))?.length || 0;
 
 	return (
 		<Section
 			title={intl.formatMessage({ id: 'ROUTES.STATS.TITLE' })}
 		>
-			{user.isFetching ? (
+			{isFetching ? (
 				<Spinner />
 			) : (
 				<React.Fragment>
 					<UserStats
 						title={intl.formatMessage({ id: 'ROUTES.STATS.USER.APT' })}
-						stats={countUserAccomodation(user.items, 'Apt.')}
+						stats={countUserAccomodation('Apt.')}
 					/>
 					<UserStats
 						title={intl.formatMessage({ id: 'ROUTES.STATS.USER.SUITE' })}
-						stats={countUserAccomodation(user.items, 'Suite')}
+						stats={countUserAccomodation('Suite')}
 					/>
 				</React.Fragment>
 			)}
