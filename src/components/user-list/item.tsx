@@ -1,5 +1,6 @@
 // Vendors
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Link as NavLink } from 'react-router-dom';
 
 // Styles
@@ -24,7 +25,12 @@ function Item ({ name, username, to }: IProps) {
 			</Part>
 			<Part>
 				<Link as={NavLink} to={to}>
-					View Post
+					<FormattedMessage id="COMPONENTS.USER_LIST.LINK.MESSAGES" />
+				</Link>
+			</Part>
+			<Part>
+				<Link as={NavLink} to={to}>
+					<FormattedMessage id="COMPONENTS.USER_LIST.LINK.DETAIL" />
 				</Link>
 			</Part>
 		</Root>
