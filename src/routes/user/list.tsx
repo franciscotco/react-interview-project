@@ -13,10 +13,10 @@ import Section from 'components/section';
 interface IProps {
 	users: IUser[],
 	basePath: string,
-	isFetchingUsers: boolean
+	isFetching: boolean
 }
 
-function UserList ({ users, basePath, isFetchingUsers }: IProps) {
+function UserList ({ users, basePath, isFetching }: IProps) {
 
 	const intl = useIntl();
 
@@ -24,7 +24,7 @@ function UserList ({ users, basePath, isFetchingUsers }: IProps) {
 		<Section
 			title={intl.formatMessage({ id: 'ROUTES.USER.LIST.TITLE' })}
 		>
-			{isFetchingUsers ? (
+			{isFetching ? (
 				<Spinner />
 			) : (
 				<List
