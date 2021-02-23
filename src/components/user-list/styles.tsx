@@ -3,11 +3,7 @@ import styled from 'styled-components';
 
 export const UserList = styled.ul`
 	padding: 0;
-
-	margin: 0 2rem;
-	@media(${props => props.theme.media.mobile_large}) {
-		margin: 0 4rem;
-	}
+	margin: 0;
 
 	overflow: hidden;
 	border-radius: .6rem;
@@ -22,7 +18,11 @@ export const UserItem = styled.li`
 	align-items: center;
 	justify-content: space-between;
 
-	padding: 3rem 2rem;
+	padding: 1.5rem 1rem;
+	@media(${props => props.theme.media.tablet_large}) {
+		padding: 3rem 2rem;
+	}
+
 	background-color: ${({ theme }) => theme.color.white};
 
 	border-bottom: .1rem solid ${({ theme }) => theme.color.gray_medium};
@@ -52,23 +52,10 @@ export const UserItem = styled.li`
 export const Part = styled.div`
 	flex: 1;
 
+	margin: 0 .1rem;
+
+	overflow: hidden;
 	font-size: 1.4rem;
-`;
-
-export const Head = styled.li`
-	display: flex;
-	align-items: center;
-	flex-direction: row;
-	justify-content: space-between;
-
-	padding: 1rem;
-`;
-
-export const HeadPart = styled.div`
-	flex: 1;
-
-	font-size: 1.6rem;
-	font-weight: 700;
 `;
 
 export const Link = styled.a`

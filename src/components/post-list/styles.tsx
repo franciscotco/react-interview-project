@@ -3,11 +3,7 @@ import styled from 'styled-components';
 
 export const PostList = styled.ul`
 	padding: 0;
-
-	margin: 0 2rem;
-	@media(${props => props.theme.media.mobile_large}) {
-		margin: 0 4rem;
-	}
+	margin: 0;
 
 	overflow: hidden;
 	border-radius: .6rem;

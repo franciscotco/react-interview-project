@@ -32,7 +32,8 @@ function UserList ({ users, basePath, isFetching }: IProps) {
 						name,
 						username,
 						id,
-						to: `${basePath}/${id}`
+						toMessage: `${basePath}/message/${id}`,
+						toDetail: `${basePath}/detail/${id}`
 					}))}
 				/>
 			)}

@@ -8,6 +8,7 @@ import { useFetchUsers } from 'api/user';
 // Routes
 import List from './list';
 import Post from './post';
+import Detail from './detail';
 
 // Config
 import Config from './config';
@@ -22,8 +23,9 @@ function User ({ match }: IProps) {
 
 	return (
 		<Switch>
-			<Route path={match.url}               exact render={() => <List basePath={match.url} users={users} isFetching={isFetching} />} />
-			<Route path={`${match.url}/:user_id`} exact render={() => <Post basePath={match.url} users={users} />} />
+			<Route path={match.url}                       exact render={() => <List   basePath={match.url} users={users} isFetching={isFetching} />} />
+			<Route path={`${match.url}/detail/:user_id`}  exact render={() => <Detail basePath={match.url} users={users} isFetching={isFetching} />} />
+			<Route path={`${match.url}/message/:user_id`} exact render={() => <Post   basePath={match.url} />} />
 			<Route render={() => <Redirect to={match.url} />} />
 		</Switch>
 	);

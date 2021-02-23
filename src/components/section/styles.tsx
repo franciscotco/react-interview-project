@@ -49,7 +49,7 @@ export const Heading1 = styled.h1`
 
 export const Content = styled.div`
 	padding: 2rem;
-	@media(${props => props.theme.media.mobile_large}) {
+	@media(${props => props.theme.media.tablet_large}) {
 		padding: 4rem;
 	}
 `;
