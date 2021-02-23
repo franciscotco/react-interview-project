@@ -5,6 +5,8 @@ import { Formik, Field, ErrorMessage } from 'formik';
 
 // API
 import { updateUser } from 'api/user';
+
+// Types
 import IUser from 'types/user';
 
 // Utils
@@ -72,7 +74,7 @@ const UserForm = ({ user }: IProps) => {
 								<ErrorMessage name="name" component="div" />
 							</div>
 
-							<button type="submit" disabled={(errors.name && errors?.name?.length > 0) || isSubmitting}>
+							<button type="submit" disabled={(errors.name && errors?.name?.length > 0) || isSubmitting || !mounted}>
 								{intl.formatMessage({ id: 'FORMS.USER.SUBMIT' })}
 							</button>
 						</form>
