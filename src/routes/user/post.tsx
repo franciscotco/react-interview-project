@@ -17,15 +17,18 @@ import PostList from 'components/post-list';
 // Forms
 import FormUser from 'forms/user';
 
+// Utils
+import { useMounted } from 'utils/useMounted';
+
 interface IProps {
 	basePath: string,
 	users: IUser[]
 }
 
 function UserPost ({ basePath, users }: IProps) {
-	const mounted = React.useRef(false);
 
 	const intl = useIntl();
+	const mounted = useMounted();
 	const { user_id } = useParams<{ user_id: string }>();
 	const [posts, setPosts] = React.useState([]);
 	const [isFetching, setFetching] = React.useState(true);
@@ -33,31 +36,29 @@ function UserPost ({ basePath, users }: IProps) {
 	const user = users.find(({ id }) => id === parseInt(user_id));
 
 	React.useEffect(() => {
-		mounted.current = true;
 
-		return () => { mounted.current = false; };
-	}, []);
-
-	React.useEffect(() => {
+		if (!mounted) {
+			return ;
+		}
 
 		setFetching(true);
 
 		fetchUserPost(user_id)
 			.then(res => {
 				console.log(res);
-				if (mounted.current) {
+				if (mounted) {
 					setFetching(false);
 					setPosts(res.data);
 				}
 			})
 			.catch(res => {
 				console.error(res);
-				if (mounted.current) {
+				if (mounted) {
 					setFetching(false);
 					setPosts([]);
 				}
 			});
-	}, []);
+	}, [mounted]);
 
 	return (
 		<Section
