@@ -1,19 +1,18 @@
 {
-	"ROUTES.USER.LIST.TITLE": "Liste des utilisateurs",
+	"ROUTES.USER.LIST.TITLE": "Page des utilisateurs",
 	"ROUTE.USER.NAME": "Utilisateurs",
 	"ROUTE.POST.NAME": "Postes",
 	"ROUTE.HOME.NAME": "Accueil",
 	"ROUTE.STATS.NAME": "Statistiques",
 	"ROUTES.STATS.USER.APT": "Nombre d'utilisateur dans un appartement",
 	"ROUTES.STATS.USER.SUITE": "Nombre d'utilisateur dans une suite",
-	"COMPONENTS.USER_LIST.HEAD.NAME": "Prénom",
-	"COMPONENTS.USER_LIST.HEAD.LAST_NAME": "Nom",
-	"COMPONENTS.USER_LIST.HEAD.POST": "Publications",
 	"ROUTES.USER.POST.TITLE": "Page des posts d'un utilisateur",
 	"ROUTES.HOME.TITLE": "Page d'accueil",
-	"ROUTES.STATS.TITLE": "Page des statistiques sur les utilisateurs",
+	"ROUTES.STATS.TITLE": "Page des statistiques",
 	"FORMS.USER.SUBMIT": "Envoyer",
 	"FORMS.USER.TITLE": "Formulaire",
 	"FORMS.USER.NAME": "Prénom",
-	"COMPONENTS.SECTION.BACK_URL.TITLE": "Retour"
+	"COMPONENTS.SECTION.BACK_URL.TITLE": "Retour",
+	"COMPONENTS.USER_LIST.LINK.DETAIL": "Détails",
+	"COMPONENTS.USER_LIST.LINK.MESSAGES": "Messages"
 }
