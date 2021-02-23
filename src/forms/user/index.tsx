@@ -7,19 +7,17 @@ import { Formik, Field, ErrorMessage } from 'formik';
 import { updateUser } from 'api/user';
 import IUser from 'types/user';
 
+// Utils
+import { useMounted } from 'utils/useMounted';
+
 interface IProps {
 	user: IUser
 }
 
 const UserForm = ({ user }: IProps) => {
-	const mounted = React.useRef(false);
 
 	const intl = useIntl();
-
-	React.useEffect(() => {
-		mounted.current = true;
-		return () => { mounted.current = false; };
-	}, []);
+	const mounted = useMounted();
 
 	return (
 		<div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', margin: '2rem 0' }}>
@@ -41,18 +39,22 @@ const UserForm = ({ user }: IProps) => {
 					}}
 					onSubmit={(values, { setSubmitting }) => {
 
+						if (!mounted) {
+							return;
+						}
+
 						setSubmitting(true);
 
 						updateUser({ ...user, name: values.name })
 							.then(res => {
 								console.log(res);
-								if (mounted.current) {
+								if (mounted) {
 									setSubmitting(false);
 								}
 							})
 							.catch(res => {
 								console.error(res);
-								if (mounted.current) {
+								if (mounted) {
 									setSubmitting(false);
 								}
 							});
