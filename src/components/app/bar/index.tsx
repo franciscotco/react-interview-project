@@ -1,7 +1,7 @@
 // Vendors
 import React from 'react';
-import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 import { NavLink, useLocation } from 'react-router-dom';
 
 // Data
@@ -28,7 +28,6 @@ interface IProps {
 
 function AppBar ({ onSwitchLang, routes }: IProps) {
 
-	const intl = useIntl();
 	const location = useLocation();
 	const lang = useSelector(({ lang }: { lang: ILangState }) => lang);
 
@@ -47,7 +46,7 @@ function AppBar ({ onSwitchLang, routes }: IProps) {
 									$is_active={!!location.pathname.includes(route.path)}
 								>
 									<Heading3>
-										{intl.formatMessage({ id: `ROUTE.${route.name.toUpperCase()}.NAME` })}
+										<FormattedMessage id={`ROUTE.${route.name.toUpperCase()}.NAME`} />
 									</Heading3>
 								</RouteLink>
 							</RouteItem>

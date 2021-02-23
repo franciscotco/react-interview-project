@@ -2,12 +2,16 @@
 import styled from 'styled-components';
 
 export const UserList = styled.ul`
-	margin: 0;
-	padding: 0 2rem;
+	padding: 0;
 
+	margin: 0 2rem;
 	@media(${props => props.theme.media.mobile_large}) {
-		padding: 0 4rem;
+		margin: 0 4rem;
 	}
+
+	overflow: hidden;
+	border-radius: .6rem;
+	border: 1px solid ${({ theme }) => theme.color.gray_medium};
 `;
 
 export const UserItem = styled.li`
@@ -18,15 +22,13 @@ export const UserItem = styled.li`
 	align-items: center;
 	justify-content: space-between;
 
-	margin: .5rem 0;
-	padding: 1rem;
+	padding: 3rem 2rem;
+	background-color: ${({ theme }) => theme.color.white};
 
-	background: ${({ theme }) => theme.color.white};
-	border-left: 1px solid ${({ theme }) => theme.color.white};
-
-	border-width: 1px 1px 2px;
-    border-style: solid;
-    border-color: rgb(234, 234, 234);
+	border-bottom: .1rem solid ${({ theme }) => theme.color.gray_medium};
+	&:last-child {
+		border-bottom: unset;
+	}
 
 	&::before {
 		content: "";
@@ -37,6 +39,7 @@ export const UserItem = styled.li`
 		opacity: 0;
 		width: .4rem;
 		background-color: rgb(225, 199, 58);
+		transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
 	}
 
 	&:hover {
@@ -49,13 +52,13 @@ export const UserItem = styled.li`
 export const Part = styled.div`
 	flex: 1;
 
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 `;
 
 export const Head = styled.li`
 	display: flex;
-	flex-direction: row;
 	align-items: center;
+	flex-direction: row;
 	justify-content: space-between;
 
 	padding: 1rem;

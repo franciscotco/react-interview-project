@@ -34,9 +34,9 @@ export const Part = styled.div`
  * Route
  */
 export const RouteList = styled.ul`
-	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	list-style-type: none;
 
 	display: flex;
 	flex-direction: row;
@@ -44,7 +44,6 @@ export const RouteList = styled.ul`
 
 export const RouteItem = styled.li`
 	margin: 0 0 0 2rem;
-
 	&:first-child {
 		margin: 0;
 	}
@@ -52,10 +51,12 @@ export const RouteItem = styled.li`
 
 export const RouteLink = styled.a<{ $is_active: boolean }>`
 	text-decoration: ${({ $is_active }) => $is_active ? 'underline' : 'none'};
+
+	color: ${({ theme }) => theme.color.blue_dark};
 `;
 
 export const Heading3 = styled.h3`
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 `;
 
 
@@ -63,9 +64,9 @@ export const Heading3 = styled.h3`
  * Lang
  */
 export const LangList = styled.ul`
-	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	list-style-type: none;
 
 	display: flex;
 	flex-direction: row;
@@ -73,17 +74,16 @@ export const LangList = styled.ul`
 
 export const LangItem = styled.li`
 	margin: 0 2rem 0 0;
-
 	&:last-child {
 		margin: 0;
 	}
 `;
 
 export const LangLink = styled.a<{ is_active: boolean }>`
-	text-decoration: ${({ is_active }) => is_active ? 'underline' : 'none'};
+	text-decoration: none;
 
 	cursor: pointer;
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 
 	${({ is_active }) => is_active && (
 		css`
