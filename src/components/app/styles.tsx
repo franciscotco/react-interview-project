@@ -10,4 +10,9 @@ export const App = styled.div`
 
 export const Body = styled.div`
 	flex: 1;
+
+	margin: 1rem;
+	@media(${props => props.theme.media.tablet_large}) {
+		margin: 3rem;
+	}
 `;
