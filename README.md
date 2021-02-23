@@ -1,19 +1,28 @@
-## Gatling Corp JS project
+# Gatling WebApp
 
-The goal of this small project is to create a small webapp displaying users and their related posts (data are located on [jsonplaceholder](https://jsonplaceholder.typicode.com)). 
+## Prerequisite
+1. Make sure you have npm install on your computer with the following command, if the answer is something like that `zsh: command not found: node` follow this [tutorial](https://www.npmjs.com/get-npm):
+```
+node -v
+```
 
-Use this project, which has already yarn configured and the table of users implemented. The architecture of the project is up to you. Please code as you would do in your everyday work.
+2. Make sure you have yarn install on your computer with the following command, if the answer is something like that `zsh: command not found: yarn` follow this [tutorial](https://classic.yarnpkg.com/en/docs/install):
+```
+yarn --version
+```
 
-#### Specifications
+## Front Installation
+1. From the root of the repository install the node_modules with:
+```
+yarn
+```
 
-- Add the option to fetch each user posts on [jsonplaceholder](https://jsonplaceholder.typicode.com) and display them with their user.
-- The name of each user should be editable, and should send the update to the server (note that the update is faked on jsonplaceholder).
-- Display the number of users living in an Appt, and in a Suite (field address.suite)
+2. To run the project in development mode run:
+```
+yarn run start
+```
 
-##### Bonus
-
-- add a spinner while information is loading
-- add css
-- use redux
-- split the application into different pages
-- add tools typically used in a development environment (linters, code formatter, ...)
+3. To run the project in production mode run:
+```
+yarn run build && yarn run deploy
+```
