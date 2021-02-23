@@ -1,10 +1,10 @@
 // Vendors
 import React from 'react';
-import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 // Styles
-import { Section as Root, Link, Heading1 } from './styles';
+import { Section as Root, Link, Heading1, Content, Back } from './styles';
 
 interface IProps {
 	children: React.ReactNode,
@@ -14,22 +14,24 @@ interface IProps {
 
 function Section ({ children, title, backUrl }: IProps) {
 
-	const intl = useIntl();
-
 	return (
 		<Root>
 			{backUrl && (
-				<Link
-					as={NavLink}
-					to={backUrl}
-				>
-					{intl.formatMessage({ id: 'COMPONENTS.SECTION.BACK_URL.TITLE' })}
-				</Link>
+				<Back>
+					<Link
+						as={NavLink}
+						to={backUrl}
+					>
+						<FormattedMessage id="COMPONENTS.SECTION.BACK_URL.TITLE" />
+					</Link>
+				</Back>
 			)}
 			<Heading1>
 				{title}
 			</Heading1>
-			{children}
+			<Content>
+				{children}
+			</Content>
 		</Root>
 	);
 
