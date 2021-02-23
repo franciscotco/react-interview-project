@@ -9,14 +9,10 @@ export const Section = styled.div`
 	flex-direction: column;
 	box-sizing: border-box;
 
+	overflow: hidden;
 	border-radius: 0.4rem;
 	box-shadow: rgb(0 0 0 / 15%) 0px 1px 1px 0px;
 	background-color: ${({ theme }) => theme.color.gray_lightest};
-
-	margin: 1rem;
-	@media(${props => props.theme.media.mobile_large}) {
-		margin: 2rem;
-	}
 `;
 
 export const Back = styled.div`
